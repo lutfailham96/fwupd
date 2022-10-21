@@ -157,31 +157,7 @@ The HSI level will also be set to `INVALID` indicating this.
 The set of tests is currently x86 UEFI-centric, but will be expanded in the future for various ARM or RISC-V firmware protections as required.
 Where the requirement is architecture or processor specific it has been noted.
 
-<a id="org.fwupd.hsi.Uefi.SecureBoot"></a>
-
-### [UEFI SecureBoot](#org.fwupd.hsi.Uefi.SecureBoot)
-
-UEFI Secure boot is a verification mechanism for ensuring that code launched by firmware is trusted.
-
-Secure Boot requires that each binary loaded at boot is validated against trusted certificates.
-
-**Impact:** When Secure Boot is not enabled any EFI binary can be run at startup, which gives the attacker full access to your hardware.
-
-**Possible results:**
-
-- `not-found`: support has not been detected
-- `not-enabled`: detected, but has been turned off
-- `enabled`: supported and enabled
-
-To meet HSI-1 on UEFI systems that run this test, the result must be `enabled`. *[v1.5.0]*
-
-**Resolution:**
-
-Turn off CSM boot and enable Secure Boot in the BIOS setup.
-
-**References:**
-
-- [Ubuntu SecureBoot Wiki Page](https://wiki.ubuntu.com/UEFI/SecureBoot)
+{{tests}}
 
 <a id="org.fwupd.hsi.Uefi.Pk"></a>
 
@@ -415,7 +391,7 @@ This makes privilege escalation from user to root possible, and also modifying S
 
 To meet HSI-1 on systems that run this test, the result must be `not-enabled`. *[v1.5.0]*
 
-Note: this attribute was previously known as org.fwupd.hsi.IntelDci.Enabled in 1.5.0, but was renamed in 1.8.0 to support other vendors.
+Note: this attribute was previously known as `org.fwupd.hsi.IntelDci.Enabled` in 1.5.0, but was renamed in 1.8.0 to support other vendors.
 
 **References:**
 
